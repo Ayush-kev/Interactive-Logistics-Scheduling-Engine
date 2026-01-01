@@ -1,100 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@400;700&display=swap");
-
-:root {
-  --border-color: #e3e5e4;
-  --background-color: #fff;
-  --background-secondary-color: #c3c7ca;
-  --draggable-color: #eaeaea;
-  --text-color: #34444f;
-  --right-color: #3ae374;
-  --wrong-color: #ff3838;
-}
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Blinker", sans-serif;
-  background-color: var(--background-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f1229;
+  color: #ffffff;
 }
 
-.draggable-list {
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
+.container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.sortable-list {
+  list-style: none;
   padding: 0;
-  list-style-type: none;
+  margin-top: 20px;
 }
 
-.draggable-list li {
-  background-color: var(--background-color);
-  display: flex;
-  flex: 1;
+.sortable-item {
+  background-color: #22254b;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  cursor: grab;
 }
 
-.draggable-list li:not(:last-of-type) {
-  border-bottom: 1px solid var(--border-color);
+.sortable-item.dragging {
+  opacity: 0.5;
 }
 
-.draggable-list .number {
-  background-color: var(--background-secondary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.75rem;
-  width: 3.75rem;
-  height: 3.75rem;
-}
-
-.draggable-list li.over .draggable {
-  background-color: var(--draggable-color);
-}
-
-.draggable-list .person-name {
-  margin: 0 1.25rem 0 0;
-}
-
-.draggable-list li.right .person-name {
-  color: var(--right-color);
-}
-
-.draggable-list li.wrong .person-name {
-  color: var(--wrong-color);
-}
-
-.draggable {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  flex: 1;
-}
-
-.check-btn {
-  background-color: var(--background-secondary-color);
-  border: none;
-  color: var(--text-color);
-  font-size: 1rem;
-  padding: 0.625rem 1.25rem;
-  cursor: pointer;
-}
-
-.check-btn:active {
-  transform: scale(0.98);
-}
-
-.check-btn:hover {
-  background-color: var(--text-color);
-  color: var(--background-color);
-}
-
-.check-btn:focus {
-  outline: none;
+.sortable-item.over {
+  outline: 2px dashed #b6b9ff;
 }
