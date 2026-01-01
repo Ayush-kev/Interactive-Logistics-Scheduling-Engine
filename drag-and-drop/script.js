@@ -1,40 +1,63 @@
-const fill = document.querySelector(".fill");
-const empties = document.querySelectorAll(".empty");
+/* =====================
+   DRAG & DROP BOARD
+===================== */
 
-const dragStart = function () {
-  this.className += " hold";
-  setTimeout(() => (this.className = "invisible"), 0);
-};
+const board = document.querySelector(".board");
 
-const dragEnd = function () {
-  this.className = "fill";
-};
+/* =====================
+   DRAG START
+===================== */
+board.addEventListener("dragstart", (e) => {
+  const task = e.target.closest(".task");
+  if (!task) return;
 
-const dragOver = function (e) {
-  // Ref: https://developer.cdn.mozilla.net/en-US/docs/Web/API/Document/dragover_event
-  e.preventDefault();
-};
+  e.dataTransfer.setData("text/plain", "");
+  e.dataTransfer.effectAllowed = "move";
 
-const dragEnter = function (e) {
-  e.preventDefault();
-  this.className += " hovered";
-};
+  task.classList.add("dragging");
+});
 
-const dragLeave = function () {
-  this.className = "empty";
-};
+/* =====================
+   DRAG END
+===================== */
+board.addEventListener("dragend", (e) => {
+  const task = e.target.closest(".task");
+  if (!task) return;
 
-const dragDrop = function () {
-  this.className = "empty";
-  this.append(fill);
-};
+  task.classList.remove("dragging");
+});
 
-fill.addEventListener("dragstart", dragStart);
-fill.addEventListener("dragend", dragEnd);
+/* =====================
+   DRAG OVER
+===================== */
+board.addEventListener("dragover", (e) => {
+  const zone = e.target.closest(".drop-zone");
+  if (!zone) return;
 
-for (const empty of empties) {
-  empty.addEventListener("dragover", dragOver);
-  empty.addEventListener("dragenter", dragEnter);
-  empty.addEventListener("dragleave", dragLeave);
-  empty.addEventListener("drop", dragDrop);
-}
+  e.preventDefault(); // REQUIRED to allow drop
+  zone.classList.add("over");
+});
+
+/* =====================
+   DRAG LEAVE
+===================== */
+board.addEventListener("dragleave", (e) => {
+  const zone = e.target.closest(".drop-zone");
+  if (!zone) return;
+
+  zone.classList.remove("over");
+});
+
+/* =====================
+   DROP
+===================== */
+board.addEventListener("drop", (e) => {
+  const zone = e.target.closest(".drop-zone");
+  const task = document.querySelector(".task.dragging");
+
+  if (!zone || !task) return;
+
+  zone.classList.remove("over");
+  zone.appendChild(task);
+});
+
