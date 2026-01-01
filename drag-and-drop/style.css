@@ -3,42 +3,79 @@
 }
 
 body {
-  background-color: steelblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f1229;
+  color: #ffffff;
 }
 
-.empty {
-  height: 150px;
-  width: 150px;
-  margin: 10px;
-  border: solid 3px black;
-  background: white;
+/* =====================
+   BOARD LAYOUT
+===================== */
+.board {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  justify-content: center;
 }
 
-.fill {
-  background-image: url("https://picsum.photos/150/150");
-  height: 145px;
-  width: 145px;
-  cursor: pointer;
+.column {
+  background-color: #1b1f3b;
+  padding: 16px;
+  border-radius: 8px;
+  width: 220px;
 }
 
-.hold {
-  border: solid 5px #ccc;
+.column h2 {
+  margin-top: 0;
+  font-size: 16px;
+  text-align: center;
+  color: #b6b9ff;
 }
 
-.hovered {
-  background-color: #333;
-  border-color: white;
-  border-style: dashed;
+/* =====================
+   DROP ZONE
+===================== */
+.drop-zone {
+  min-height: 180px;
+  padding: 10px;
+  border: 2px dashed #444;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
+.drop-zone.over {
+  background-color: rgba(182, 185, 255, 0.15);
+  border-color: #b6b9ff;
+}
+
+/* =====================
+   TASK (DRAGGABLE)
+===================== */
+.task {
+  background-color: #22254b;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: grab;
+  font-size: 14px;
+}
+
+.task:active {
+  cursor: grabbing;
+}
+
+.task.dragging {
+  opacity: 0.5;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
 @media (max-width: 800px) {
-  body {
+  .board {
     flex-direction: column;
+    align-items: center;
   }
 }
+
