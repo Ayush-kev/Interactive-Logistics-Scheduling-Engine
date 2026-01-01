@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Drag 'N Drop</title>
-  </head>
-  <body>
-    <div class="empty">
-      <div class="fill" draggable="true"></div>
-    </div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <div class="empty"></div>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drag and Drop Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="board" aria-label="Drag and drop task board">
+
+    <section class="column" aria-label="Column 1">
+      <h2>Zone 1</h2>
+      <div class="drop-zone" data-zone="1">
+        <div class="task" draggable="true" tabindex="0">
+          Task A
+        </div>
+      </div>
+    </section>
+
+    <section class="column" aria-label="Column 2">
+      <h2>Zone 2</h2>
+      <div class="drop-zone" data-zone="2"></div>
+    </section>
+
+    <section class="column" aria-label="Column 3">
+      <h2>Zone 3</h2>
+      <div class="drop-zone" data-zone="3"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
