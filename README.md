@@ -1,3 +1,11 @@
+Live Projects
+
+FAQ Collapse - https://ayush-kev.github.io/Interactive-Logistics-Scheduling-Engine/FAQ%20Collapse/
+
+Drag and Drop Interface -  https://ayush-kev.github.io/Interactive-Logistics-Scheduling-Engine/drag-and-drop/
+
+Sortable List - https://ayush-kev.github.io/Interactive-Logistics-Scheduling-Engine/sortable-list/
+
 Interactive Logistics Scheduling Engine
 A high-interaction scheduling dashboard designed for complex logistics management. This project demonstrates mastery of the DOM Event Model and the HTML5 Drag-and-Drop API, providing a "snappy" and accessible user experience without the overhead of heavy frameworks.
 
